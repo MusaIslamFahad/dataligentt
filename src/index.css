@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base surface: near-white with the faintest cool tint, matching the reference */
+    --background: 189 54% 97%;
+    --foreground: 247 66% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 247 66% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 247 66% 8%;
+
+    /* Primary: vivid indigo-violet CTA color */
+    --primary: 251 81% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 96%;
+    --secondary-foreground: 247 66% 8%;
+
+    --muted: 220 20% 96%;
+    --muted-foreground: 230 10% 46%;
+
+    --accent: 251 81% 54%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 7%;
+
+    --border: 220 16% 90%;
+    --input: 220 16% 90%;
+    --ring: 251 81% 54%;
+
+    /* Deep navy — used for full-bleed alternating sections & dark buttons */
+    --navy: 247 66% 8%;
+    --navy-foreground: 0 0% 100%;
+
+    /* Pastel accent system used across methodology / project / stat cards */
+    --pastel-pink: 318 79% 89%;
+    --pastel-pink-fg: 322 47% 27%;
+    --pastel-mint: 145 100% 92%;
+    --pastel-mint-fg: 142 45% 27%;
+    --pastel-sky: 201 87% 88%;
+    --pastel-sky-fg: 205 51% 27%;
+    --pastel-lavender: 251 85% 90%;
+    --pastel-lavender-fg: 249 40% 37%;
+    --pastel-cream: 43 85% 90%;
+    --pastel-cream-fg: 30 45% 30%;
+
+    --radius: 1rem;
+
+    --shadow-sm: 0 1px 2px 0 rgb(10 7 34 / 0.05);
+    --shadow: 0 4px 16px -4px rgb(10 7 34 / 0.08);
+    --shadow-lg: 0 12px 32px -8px rgb(10 7 34 / 0.12);
+    --shadow-xl: 0 24px 48px -12px rgb(10 7 34 / 0.18);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 251 81% 54%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 251 81% 54%;
+  }
+
+  .dark {
+    --background: 247 66% 6%;
+    --foreground: 220 20% 94%;
+
+    --card: 247 50% 10%;
+    --card-foreground: 220 20% 94%;
+
+    --popover: 247 50% 10%;
+    --popover-foreground: 220 20% 94%;
+
+    --primary: 251 85% 66%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 247 30% 14%;
+    --secondary-foreground: 220 20% 94%;
+
+    --muted: 247 30% 14%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 251 85% 66%;
+    --accent-foreground: 247 66% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 4%;
+
+    --border: 247 25% 18%;
+    --input: 247 25% 18%;
+    --ring: 251 85% 66%;
+
+    --navy: 247 66% 4%;
+    --navy-foreground: 0 0% 100%;
+
+    --sidebar-background: 247 50% 8%;
+    --sidebar-foreground: 220 20% 94%;
+    --sidebar-primary: 251 85% 66%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 247 30% 14%;
+    --sidebar-accent-foreground: 220 20% 94%;
+    --sidebar-border: 247 25% 18%;
+    --sidebar-ring: 251 85% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .container-wide {
+    @apply mx-auto max-w-7xl px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary;
+  }
+
+  .eyebrow-on-navy {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90;
+  }
+
+  /* Full-bleed dark navy section, matching the reference's alternating rhythm */
+  .surface-navy {
+    background-color: hsl(var(--navy));
+    color: hsl(var(--navy-foreground));
+  }
+
+  .pastel-pink { background-color: hsl(var(--pastel-pink)); color: hsl(var(--pastel-pink-fg)); }
+  .pastel-mint { background-color: hsl(var(--pastel-mint)); color: hsl(var(--pastel-mint-fg)); }
+  .pastel-sky { background-color: hsl(var(--pastel-sky)); color: hsl(var(--pastel-sky-fg)); }
+  .pastel-lavender { background-color: hsl(var(--pastel-lavender)); color: hsl(var(--pastel-lavender-fg)); }
+  .pastel-cream { background-color: hsl(var(--pastel-cream)); color: hsl(var(--pastel-cream-fg)); }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(251 81% 54%), hsl(266 85% 62%));
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(251 81% 58%), hsl(266 85% 62%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-dots {
+    background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .marquee-track {
+    animation: marquee 32s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 8s ease-in-out 2s infinite;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-16px); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
